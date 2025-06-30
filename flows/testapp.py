@@ -1,22 +1,12 @@
-
-# This file is your entry point:
-# - add you Python files and folder inside this 'flows' folder
-# - add your imports
-# - just don't change the name of the function 'run()' nor this filename ('testapp.py')
-#   and everything is gonna be ok.
-#
-# Remember: everything is gonna be ok in the end: if it's not ok, it's not the end.
-# Alternatively, ask for help at https://github.com/deeplime-io/onecode/issues
-
-import onecode
+from onecode import slider, file_output, Logger
 
 
 def run():
-    onecode.Logger.info(
-        """
-        #####################################################################
-        ###> Hello from testapp!
-        ###> Fill in this run() function with something awesome!
-        #####################################################################
-        """
-    )
+    n = slider("Table de multiplication jusqu’à", value=5, min=1, max=100)
+    output_file = file_output("Fichier résultat", "multiplication.txt")
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        for i in range(1, n + 1):
+            line = f"{i} x {i} = {i * i}"
+            f.write(line + "\n")
+            Logger.info(line)

@@ -1,7 +1,3 @@
 [
-    {
-        "file": "testapp",
-        "label": "multip",
-        "attributes": {}
-    }
+  { "file": "testapp", "label": "Multiplication", "attributes": {} }
 ]
